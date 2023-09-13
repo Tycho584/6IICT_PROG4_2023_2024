@@ -1,0 +1,1 @@
+zee = {"Water": 3, "Vissen": 1, "ijs":2}
