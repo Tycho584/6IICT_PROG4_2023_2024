@@ -4,7 +4,7 @@ grootste_steden = {
         'Parijs': 2140526,
         'Marseille': 869815,
     },
-    'Belgi?': {
+    'Belgie': {
         'Brussel': 1209000,
         'Antwerpen': 523248,
     },
