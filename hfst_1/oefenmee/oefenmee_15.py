@@ -13,3 +13,11 @@ grootste_steden = {
         'Hamburg': 1841179,
     }
 }
+
+print("Overzicht van grootste steden in Europese landen...")
+
+for land, stad in grootste_steden.items():
+    print("------------------------------------------------")
+    print(f"De grootste steden in {land} zijn:")
+    for inwoners in stad:
+        print(f"{inwoners} met {grootste_steden[land][inwoners]} inwoners.")
