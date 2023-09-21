@@ -48,7 +48,7 @@ def renderWoord():
             else:
                 print('? ', end='')
         print('')
-        print('" ' * len(GeheimWoord))
+        print('" "* len(GeheimWoord))
         print("====================================================================")
 
 renderWoord()
@@ -66,7 +66,7 @@ while True:
                 renderWoord()
                 if checkWin():
                     print('Je hebt alle letters geraden, en dus gewonnen!')
-                    print('Het woord was: ' + GeheimWoord)
+                    print('Het woord was: "+ GeheimWoord)
                     break
             else:
                 print('Fout. Die letter zit niet in het woord')
@@ -85,7 +85,7 @@ while True:
         print("Geef één letter of het woord in, er worden geen levens verwijderd.")
         renderWoord()
     if levens <= 0:
-        print('Je hebt verloren! Het woord was ' + GeheimWoord)
+        print('Je hebt verloren! Het woord was "+ GeheimWoord)
         break
     print('Je hebt nog', levens, 'levens over.')
 print('Afsluiten...')
