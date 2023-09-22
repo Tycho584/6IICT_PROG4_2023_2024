@@ -1,18 +1,1 @@
-{
-    "error": false,
-    "category": "Christmas",
-    "type": "twopart",
-    "setup": "Why couldn't the skeleton go to the Christmas party?",
-    "delivery": "Because he had no body to go with!",
-    "flags": {
-        "nsfw": false,
-        "religious": false,
-        "political": false,
-        "racist": false,
-        "sexist": false,
-        "explicit": false
-    },
-    "id": 252,
-    "safe": true,
-    "lang": "en"
-}
+{"error": false, "amount": 3, "jokes": [{"category": "Christmas", "type": "twopart", "setup": "What does Santa suffer from if he gets stuck in a chimney?", "delivery": "Claustrophobia!", "flags": {"nsfw": false, "religious": false, "political": false, "racist": false, "sexist": false, "explicit": false}, "id": 241, "safe": true, "lang": "en"}, {"category": "Christmas", "type": "twopart", "setup": "Why does Santa go down the chimney?", "delivery": "Because it soots him!", "flags": {"nsfw": false, "religious": false, "political": false, "racist": false, "sexist": false, "explicit": false}, "id": 253, "safe": true, "lang": "en"}, {"category": "Christmas", "type": "twopart", "setup": "What do Santa's little helpers learn at school?", "delivery": "The elf-abet!\n", "flags": {"nsfw": false, "religious": false, "political": false, "racist": false, "sexist": false, "explicit": false}, "id": 248, "safe": true, "lang": "en"}]}
