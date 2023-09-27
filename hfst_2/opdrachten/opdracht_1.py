@@ -68,10 +68,10 @@ while stoppen:
                 response_json = response.json()
 
                 for grap in range(aantal):
-
+                    lolletje = response_json["jokes"][grap]
                     with open("hfst_2/opdrachten/jokeAPI.json", "w") as file:
                         json.dump(response_json, file)
-                        if "joke" in response_json or "single" in response_json:
+                        if "joke" in lolletje or "single" in lolletje:
                             print(response_json["jokes"][grap]["joke"])
                         else:
                             print(response_json["jokes"][grap]["setup"])
