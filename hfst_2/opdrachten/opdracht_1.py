@@ -8,7 +8,7 @@ while stoppen:
     goede_catogorie = True
     juist_aantal = True
 
-    print("Van welke catogorie zou u een grpje willen hebben?:")
+    print("Van welke categorie zou u een grpje willen hebben?:")
     print("1) Maakt mij niet zoveel uit, kies maar.")
     print("2) Een in mijn vakgebied, een lekker computer grapje.")
     print("3) Een mopje uit een catogorie met gemengde mopjes. ")
@@ -18,7 +18,7 @@ while stoppen:
     print("7) Een grap die je alleen kan maken in de December maand: Kerst.")
     print("-"*60)
 
-    catogorie = int(input("De verkozen catogotie: "))
+    catogorie = int(input("De verkozen categotie: "))
     print("-"*60)
 
     if catogorie == 1:
@@ -36,7 +36,7 @@ while stoppen:
     elif catogorie == 7:
         url_einde = "Christmas"
     else:
-        print("Deze catogorie bestaat niet, geef een bestaande catogorie op.")
+        print("Deze catogorie bestaat niet, geef een bestaande categorie op.")
         print("-"*60)
         goede_catogorie = False
         time.sleep(5)
@@ -69,10 +69,11 @@ while stoppen:
 
                 for grap in range(aantal):
                     lolletje = response_json["jokes"][grap]
-                    with open("hfst_2/opdrachten/jokeAPI.json", "w") as file:
+                    with open("jokeAPI.json", "w") as file:
                         json.dump(response_json, file)
                         if "joke" in lolletje or "single" in lolletje:
                             print(response_json["jokes"][grap]["joke"])
+                            print("="*60)
                         else:
                             print(response_json["jokes"][grap]["setup"])
                             print(response_json["jokes"][grap]["delivery"])

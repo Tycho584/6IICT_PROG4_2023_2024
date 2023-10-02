@@ -8,7 +8,7 @@ land = input("Geef tweeletter-code van land (Belgie = BE): ")
 # Geef stad:
 stad = input(f"Geef stad (in het Engels): ")
 # Geef API-key:
-API_key = "VUL ZELF IN"
+API_key = "7361b1cc0fec5ea1eaac40197d453745"
 
 # Stel de url  op, waarmee we JSON-data kunnen afhalen van openweathermap.org
 url = f"https://api.openweathermap.org/data/2.5/forecast?q={stad},{land}&appid={API_key}"
@@ -19,20 +19,17 @@ url = f"https://api.openweathermap.org/data/2.5/forecast?q={stad},{land}&appid={
 # Roep weerdata op via endpoint (= url).
 response_json = requests.get(url).json()
 
-# # Haal uit commentaar om JSON-data te zien in terminal.
-# print(antwoord) 
-# # Haal uit commentaar om JSON-data te schrijven naar een bestand (Let op het pad!).
-# with open("bericht_openweather.json", "w") as fp:
-#     json.dump(response_json, fp)
+with open("bericht_openweather.json", "w") as fp:
+    json.dump(response_json, fp)
 
 
 
 """ STAP 3: Haal bewolkingsinfo uit JSON-data """
 
 # Zowel dag als uur (is samen te vinden in de JSON-data!)
-tijd_vandaag    = "VUL AAN"
-tijd_morgen     = "VUL AAN"
-tijd_overmorgen = "VUL AAN"
+tijd_vandaag    = response_json["list"][0]["weather"]["discription"]
+tijd_morgen     = response_json["list"][8]["weather"]["discription"]
+tijd_overmorgen = response_json["list"][16]["weather"]["discription"]
 
 # Zowel hoofd- als sub-categorie van bewolking in deze variabele zetten (zijn apart te vinden in de JSON-data).
 bewolking_vandaag    = "VUL AAN"
