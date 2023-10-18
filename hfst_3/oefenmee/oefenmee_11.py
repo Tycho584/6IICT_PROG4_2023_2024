@@ -7,4 +7,3 @@ De app bestaat uit 1 entry, 1 label & 1 button.
          Hiermee kan je de onderdelen (kleur, tekst, ...) van een widget wijzigen.
 
 """
-
