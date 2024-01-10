@@ -11,6 +11,7 @@ app = tk.Tk()
 
 getal = 5
 def knop_klik():
+    global getal
     getal+=1
     print(getal)
 
