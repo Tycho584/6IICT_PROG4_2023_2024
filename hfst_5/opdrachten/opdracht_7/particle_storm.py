@@ -1,12 +1,17 @@
 # Vul de TODO's aan op basis van de uitleg in de README.
 
-import pygame
-from particle import BoringParticle
+import pygame, random
+from particle import BoringParticle, BouncingParticle, SpinningParticle
 
 # Constantes.
-BREEDTE, HOOGTE = 600,600
+BREEDTE, HOOGTE = 1200,600
 FPS = 120
-AANTAL_PARTICLES = 20
+AANTAL_BORING_PARTICLES = 30
+AANTAL_BOUNCING_PARTICLES = 30
+AANTAL_SPINNING_PARTICLES = 30
+BORING_KLEUR = [[255,255,255]]
+BOUNCING_KLEUR = [[255,255,0],[0,0,255]]
+SPINNING_KLEUR = [[255,0,0],[0,255,0]]
 
 # Start pygame.
 pygame.init()
@@ -16,13 +21,28 @@ klok = pygame.time.Clock()
 
 # TODO 1: Vul lijst *particles* aan met objecten van de klasse *BoringParticle*.
 #         Het aantal aangemaakte objecten is gelijk aan de variabele *aantal_particles*.
-particles = []  
-""" Vul lijst aan... """
+
+boringParticles = []  
+bouncingParticles = []
+spinningParticles = []
+
+for particle in range(AANTAL_BORING_PARTICLES):
+    particleKleur = random.choice(BORING_KLEUR)
+    boringParticles.append(BoringParticle(10, BREEDTE/2, HOOGTE/2, particleKleur))
+
+for particle in range(AANTAL_BOUNCING_PARTICLES):
+    particleKleur = random.choice(BOUNCING_KLEUR)
+    bouncingParticles.append(BouncingParticle(10, BREEDTE/2, HOOGTE/2, particleKleur))
+
+for particle in range(AANTAL_SPINNING_PARTICLES):
+    particleKleur = random.choice(SPINNING_KLEUR)
+    spinningParticles.append(SpinningParticle(10, BREEDTE/2, HOOGTE/2, particleKleur))
+    
     
 running = True
 while running:
     # Maak scherm schoon.
-    scherm.fill((0,0,0))
+    scherm.fill((100,100,100))
 
     # Zorg voor constante FPS. interval is de tijd tussen iedere frame (in ms)
     interval = klok.tick(FPS)
@@ -33,13 +53,20 @@ while running:
             running = False
 
     # TODO 2: Overloop iedere particle in lijst met particles:
-    #   1. Beweeg positie van ieder particle
-    #   2. Reset particle wanneer ze uit het scherm zijn.
-    #   3. Teken particle op scherm (deels gemaakt).
-    for particle in particles:
-        """ 1. Beweeg particle """
-        """ 2. Reset particle """
-        pygame.draw.circle(scherm, (255,255,255), ("3. Vul aan met x-/y-positie van particle"), 10)
+    for particle in boringParticles:
+        particle.updatePosition(interval)
+        particle.reset(BREEDTE, HOOGTE)
+        pygame.draw.circle(scherm, particle.color, (particle.XCoordinate, particle.YCoordinate), particle.radius)
+
+    for particle in bouncingParticles:
+        particle.updatePosition(interval)
+        particle.bounceOfHorizontalWall(HOOGTE,BREEDTE)
+        particle.bounceOfVerticalWall(HOOGTE,BREEDTE)
+        pygame.draw.circle(scherm, particle.color, (particle.XCoordinate, particle.YCoordinate), particle.radius)
+
+    for particle in spinningParticles:
+        particle.updatePosition(interval)
+        pygame.draw.circle(scherm, particle.color,(particle.XCoordinate, particle.YCoordinate),particle.radius)
 
     # Toon scherm aan gebruiker.
     pygame.display.update()
