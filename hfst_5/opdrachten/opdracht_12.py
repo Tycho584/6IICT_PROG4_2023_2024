@@ -1,5 +1,23 @@
 # Maak een klasse Voertuig & Bus zoals aangegeven in opdracht 12.
 
+class Voertuig:
+    def __init__(self, merk: str, verbruik: float, zetels: int) -> None:
+        self.merk = merk
+        self.verbruik = verbruik
+        self.zetels = zetels
+
+    def info(self):
+        print(f"Het voertuig van merk {self.merk} verbruikt {self.verbruik} l/100km")
+
+class Bus(Voertuig):
+    def __init__(self, merk: str, verbruik: float, zetels: int, doel: str) -> None:
+        super().__init__(merk, verbruik, zetels)
+        self.doel = doel
+
+    def ticket_prijs(self, afstand):
+        prijs = 5 / self.zetels * afstand
+        return prijs
+
 " Via onderstaande code kan je niveau 1 testen. "
 # voertuig_1 = Voertuig("Mercedes", 6.5, 5)
 # voertuig_2 = Voertuig("Honda", 4.5, 1)

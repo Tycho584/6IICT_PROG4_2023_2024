@@ -4,28 +4,28 @@ from opdracht_10 import Speler, Spel
 
 " Via onderstaande code kan je niveau 1 testen. "
 
-# " Maak spelers aan. "
-# speler_1 = Speler("Jan", 10, 100)
-# speler_2 = Speler("Piet", 4, 400)
-# speler_3 = Speler("Joris", 9, 50)
+" Maak spelers aan. "
+speler_1 = Speler("Jan", 10, 100)
+speler_2 = Speler("Piet", 4, 400)
+speler_3 = Speler("Joris", 9, 50)
 
-# " Verhoog level van spelers. "
-# speler_1.level_up() # Jan is level 11 geworden.
-# speler_2.level_up() # Piet is level 5 geworden.
+" Verhoog level van spelers. "
+speler_1.level_up() # Jan is level 11 geworden.
+speler_2.level_up() # Piet is level 5 geworden.
 
-# print("\n#############\n")
+print("\n#############\n")
 
-# " Geef spelers een hogere score. "
-# speler_1.verhoog_score(100) # GEEN PRINT: score zou nu 200 moeten zijn.
-# speler_2.verhoog_score("1000000") # 'verhoog_score' vereist int, niet <class 'str'>.
-# speler_3.verhoog_score(450) # GEEN PRINT: score zou nu 500 moeten zijn.
+" Geef spelers een hogere score. "
+speler_1.verhoog_score(100) # GEEN PRINT: score zou nu 200 moeten zijn.
+speler_2.verhoog_score("1000000") # 'verhoog_score' vereist int, niet <class 'str'>.
+speler_3.verhoog_score(450) # GEEN PRINT: score zou nu 500 moeten zijn.
 
-# print("\n#############\n")
+print("\n#############\n")
 
-# " Toon info van spelers. "
-# speler_1.info() # Jan (lvl 11): score 200.
-# speler_2.info() # Piet (lvl 5): score 400.
-# speler_3.info() # Joris (lvl 9): score 500.
+" Toon info van spelers. "
+speler_1.info() # Jan (lvl 11): score 200.
+speler_2.info() # Piet (lvl 5): score 400.
+speler_3.info() # Joris (lvl 9): score 500.
 
 
 

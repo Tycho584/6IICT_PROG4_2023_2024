@@ -1,14 +1,22 @@
 # Voeg eigenschappen / methoden toe aan BoringParticle op basis van de uitleg in de README.
 import random, math
 
-class BoringParticle:
+class MainParticle:
+     
     def __init__(self, radius, XCoordinate, YCoordinate, color) -> None:
         self.radius = radius
         self.generateSpeed()
         self.XCoordinate = XCoordinate
         self.YCoordinate = YCoordinate
         self.color = color
-    
+
+    def resetByResize(self, BREEDTE, HOOGTE):
+        self.XCoordinate, self.YCoordinate = BREEDTE/2, HOOGTE/2
+        self.generateSpeed()
+
+class BoringParticle(MainParticle):
+
+
     def updatePosition(self, interval):
         self.XCoordinate += self.XSpeed * interval
         self.YCoordinate += self.YSpeed * interval
@@ -22,14 +30,7 @@ class BoringParticle:
         self.XSpeed = random.random() - 0.5
         self.YSpeed = random.random() - 0.5
 
-
-class BouncingParticle:
-    def __init__(self, radius, XCoordinate, YCoordinate, color) -> None:
-        self.radius = radius
-        self.generateSpeed()
-        self.XCoordinate = XCoordinate
-        self.YCoordinate = YCoordinate
-        self.color = color
+class BouncingParticle(MainParticle):
 
     def changeColor(self):
         if self.color == [255,255,0]:
@@ -57,21 +58,16 @@ class BouncingParticle:
             self.changeColor()
             self.generateSpeed
 
-
-class SpinningParticle:
-
-    def __init__(self, radius, XCoordinate, YCoordinate,color) -> None:
-        self.radius = radius
-        self.generateSpeed()
-        self.XCoordinate = XCoordinate
-        self.YCoordinate = YCoordinate
-        self.color = color
+class SpinningParticle(MainParticle):
 
     def generateSpeed(self):
         self.Speed = random.random() - 0.5
         self.angle = random.random() * (2 * math.pi)
 
     def updatePosition(self,interval):
-        self.angle += (random.random() * 0.01) * math.pi
+        self.angle += (random.random() * 0.009) * math.pi
         self.XCoordinate += self.Speed * math.cos(self.angle) * interval
         self.YCoordinate += self.Speed * math.sin(self.angle) * interval
+
+    def UpdateColor(self):
+        pass
