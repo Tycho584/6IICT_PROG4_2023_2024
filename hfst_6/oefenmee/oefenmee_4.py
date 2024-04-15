@@ -8,12 +8,7 @@ def facul(getal:int) -> None:
         if getal == 1:
             break
 
-        getal = getal * faculteit
-        
-
-        
-
-        
+        getal = getal * faculteit    
 
 print( facul(1) ) # 1
 print( facul(2) ) # 2

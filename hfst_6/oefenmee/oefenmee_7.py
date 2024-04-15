@@ -1,8 +1,24 @@
-# Tel alle cijfers in een getal op.
+def luhn(cardNumber: int) -> int:
+    sum = 0
+
+    cardNumberList = list(str(cardNumber))
+    
+    for index, number in enumerate(cardNumberList):
+
+        if (index + 1) % 2 == 1:
+            number *= 2
+
+            if int(number) > 9:
+                number = int(number) - 9
+        
+        sum += int(number)
+    
+    return sum
+    
+        
 
 
-
-print( optellen(12345) )            # 15
-print( optellen(5) )                # 5
-print( optellen(4687612962034330) ) # 64
-print( optellen(6728003096702784) ) # 69
+print( luhn(4687612962034330) ) # 70 --> geldig
+print( luhn(6728003096702784) ) # 70 --> geldig
+print( luhn(2727903413621029) ) # 66 --> ongeldig
+print( luhn(9727009535679498) ) # 92 --> ongeldig

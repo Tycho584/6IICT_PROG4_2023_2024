@@ -12,35 +12,35 @@ teken_h(x, y, breedte, hoogte, scherm)
 Fractalen tekenen moet stoppen na een bepaalde max_diepte te bereiken.
 De diepte begint best bij 0 en verhoogd met 1, telkens wanneer je een kleinere fractaal tekent.
 """
-def recursieve_fractaal(x, y, breedte, hoogte, max_diepte, huidige_diepte, scherm):
-    pass
+def recursieve_fractaal(x, y, width, height, maxDepth, currentDepth, screen):
+    drawH(x,y,width,height,screen)
 
  
 """ Teken een H op een bepaalde positie (x,y) & een bepaalde grootte (breedte,hoogte). """
-def teken_h(x,y,breedte,hoogte, scherm):
-    pygame.draw.line(scherm,
+def drawH(x,y,width,height, screen):
+    pygame.draw.line(screen,
                     ZWART,
-                    [x + breedte*.25, hoogte // 2 + y],
-                    [x + breedte*.75, hoogte // 2 + y],
+                    [x + width*.25, height // 2 + y],
+                    [x + width*.75, height // 2 + y],
                     3)
-    pygame.draw.line(scherm,
+    pygame.draw.line(screen,
                     ZWART,
-                    [x + breedte * .25, (hoogte * .5) // 2 + y],
-                    [x + breedte * .25,  (hoogte * 1.5) // 2 + y],
+                    [x + width * .25, (height * .5) // 2 + y],
+                    [x + width * .25,  (height * 1.5) // 2 + y],
                     3)
-    pygame.draw.line(scherm,
+    pygame.draw.line(screen,
                     ZWART,
-                    [x + breedte * .75, (hoogte * .5) // 2 + y],
-                    [x + breedte * .75, (hoogte * 1.5) // 2 + y],
+                    [x + width * .75, (height * .5) // 2 + y],
+                    [x + width * .75, (height * 1.5) // 2 + y],
                     3)
 
 """ Open pygame scherm met instellingen voor rechthoek.  """
 def main(): 
     # Instellingen 
     running = True
-    breedte, hoogte = 700, 700
+    width, height = 700, 700
     pygame.init()
-    scherm = pygame.display.set_mode([breedte, hoogte])
+    screen = pygame.display.set_mode([width, height])
     pygame.display.set_caption("My Game")
     clock = pygame.time.Clock()
     
@@ -50,12 +50,12 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
     
-        scherm.fill(WIT)
+        screen.fill(WIT)
 
         """ Teken fractalen zoals aangeven op GitHub. """
-        max_diepte = 3
-        huidige_diepte = 0
-        recursieve_fractaal(0, 0, breedte, hoogte, max_diepte, huidige_diepte, scherm)
+        maxDepth = 3
+        currentDepth = 0
+        recursieve_fractaal(0, 0, width, height, maxDepth, currentDepth, screen)
     
         pygame.display.flip()
         clock.tick(20)
