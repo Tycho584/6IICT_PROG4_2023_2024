@@ -1,5 +1,9 @@
 from Levenshtein import distance
 
+conversatie = {"Hallo" : "Hey",
+               "Wat ben jij?" : "Ik ben een chatbot"
+}
+
 
 class MlChatbot:
     def __init__(self, name):
@@ -36,4 +40,6 @@ class MlChatbot:
 
 if __name__ == "__main__":
     bot = MlChatbot("Marvin")
+    bot.train(conversatie)
     print(bot.zoek_antwoord("Test"))
+    bot.vraag_reeks()
