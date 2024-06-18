@@ -1,0 +1,6 @@
+Overzicht van uit te voeren operaties naargelang bestandsnaam.
+    * rot90:  roteer de afbeelding 90 graden met de klok mee.
+    * rot-90: roteer de afbeelding 90 graden tegen de klok in.
+    * flipH:  spiegel de afbeelding rond de X-as.
+    * flipV:  spiegel de afbeelding rond de Y-as.
+    * blur:   maak de afbeelding wazig. Gebruik (50,50) als blur-waarde.
